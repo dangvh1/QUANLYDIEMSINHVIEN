@@ -1,35 +1,65 @@
 package school;
 
-import monhoc.Monhoc;
-
 import java.io.Serializable;
 import java.util.Scanner;
 
 public class Subject extends Monhoc implements Serializable {
     private int id = super.getId();
-    public String getLoaimon() {
-        return loaimon;
-    }
+    private String subjectType;
 
-    public void setLoaimon(String loaimon) {
-        this.loaimon = loaimon;
-    }
+    private static final String DAICUONG = "Đại cương";
+    private static final String COSONGANH = "Cơ sở ngành";
+    private static final String CHUYENNGANH = "Chuyên ngành";
 
-    private String loaimon;
+    private static int AUTO_ID = 10000;
 
     public Subject() {
-        super();
-
     }
 
-    public Subject(int id, String tenmon, int sodonvi, String loaimon) {
-        super(id, tenmon, sodonvi);
-        this.loaimon = loaimon;
+    public Subject(int id, String tenmonhoc, int sodonvihoctrinh, String subjectType) {
+        super(tenmonhoc, sodonvihoctrinh);
+        this.id = id;
+        this.subjectType = subjectType;
     }
 
-    public void inputMonHoc(){
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public static String getDAICUONG() {
+        return DAICUONG;
+    }
+
+    public static String getCOSONGANH() {
+        return COSONGANH;
+    }
+
+    public static String getCHUYENNGANH() {
+        return CHUYENNGANH;
+    }
+
+    public String getsubjectType() {
+        return subjectType;
+    }
+
+    public void setsubjectType(String subjectType) {
+        this.subjectType = subjectType;
+    }
+
+    public static int getAutoId() {
+        return AUTO_ID;
+    }
+
+    public static void setAutoId(int autoId) {
+        AUTO_ID = autoId;
+    }
+
+    public void inputMonhoc() {
         Scanner sc = new Scanner(System.in);
-        super.nhapMonHoc();
+        super.inputInfo();
         System.out.println("Trình độ: ");
         String[] arr = {"Đại Cương", "Cơ Sở Ngành", "Chuyên Ngành"};
         boolean check = true;
@@ -43,13 +73,13 @@ public class Subject extends Monhoc implements Serializable {
             try {
                 switch (a){
                     case 1:
-                        this.setLoaimon(arr[0]);
+                        this.setsubjectType(arr[0]);
                         break;
                     case 2:
-                        this.setLoaimon(arr[1]);
+                        this.setsubjectType(arr[1]);
                         break;
                     case 3:
-                        this.setLoaimon(arr[2]);
+                        this.setsubjectType(arr[2]);
                         break;
                     default:
                         System.out.println("Chỉ được chọn từ 1-3, vui lòng chọn lại : ");
@@ -64,15 +94,12 @@ public class Subject extends Monhoc implements Serializable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Subject{" +
-                "ID : " + getId() +
-                ", tenmon : '" + getTenmon() + '\'' +
-                ", sodonvi : " + getSodonvi() +'\'' +
-                ", loaimon : '" + getLoaimon() + '\'' +
+                "id=" + id +
+                ", name='" + getTenmonhoc() + '\'' +
+                ", sodonvihoctrinh='" + getSodonvihoctrinh() + '\'' +
+                ", subjectType='" + subjectType + '\'' +
                 '}';
     }
-
-
-
 }
