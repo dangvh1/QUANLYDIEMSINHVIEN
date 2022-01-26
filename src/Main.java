@@ -235,7 +235,7 @@ public class Main {
                 System.out.println("Nhập id môn học thứ " + (j + 1) + " của học sinh " + student.getName() + " muốn nhập điểm ");
                 Subject subject = inputSubjectID(subjects);
                 System.out.println(subject);
-                System.out.println("Nhập điểm của môn học " + student.getName() + " : ");
+                System.out.println("Nhập điểm của môn học của sinh viên " + student.getName() + " : ");
                 int turnNumber = 0;
                 do {
                     try {
@@ -246,8 +246,8 @@ public class Main {
                         check = false;
                         continue;
                     }
-                    if (turnNumber >= 0 && turnNumber <= 10 ) {
-                        System.out.print("Số điểm phải lớn hơn 0 và nhỏ hơn 10! Nhập lại: ");
+                    if (turnNumber < 0 || turnNumber > 10 ) {
+                        System.out.print("Số điểm phải lớn hơn 0 và nhỏ hơn hoặc bằng 10! Nhập lại: ");
                         check = false;
                         continue;
                     }
@@ -345,6 +345,10 @@ public class Main {
                 System.out.println("Không được nhập ký tự khác ngoài số! Nhập lại: ");
                 check = false;
                 continue;
+            }
+            if (SubjectNumber < 0 || SubjectNumber > subjects.length) {
+                System.out.print("Số môn học không được nhỏ hơn 0 và hớn lơn tổng số môn học! Nhập lại: ");
+                check = false;
             }
         } while (!check);
         return SubjectNumber;
