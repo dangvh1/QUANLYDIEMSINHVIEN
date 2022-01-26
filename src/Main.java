@@ -46,7 +46,7 @@ public class Main {
                         Main.sortbangdiem();
                         break;
                     case 5:
-                        Main.tinhGPA();
+                        Main.GPA();
                         break;
                     case 6:
                         mn.outputFile(subjects,students,bangdiems);
@@ -64,12 +64,26 @@ public class Main {
 
     }
 
-    private static void tinhGPA() {
+    private static void GPA() {
         if (bangdiems == null || bangdiems.length == 0) {
             System.out.println("Nhập bảng diểm trước khi sắp xếp");
             return;
         }
+        for (int i = 0; i < bangdiems.length; i++) {
+            System.out.print("sinh viên"+(i+1)+". "+bangdiems[i].getStudent().getName()+": ");
+            System.out.println(tinhdiem(bangdiems[i]));
+        }
+    }
 
+    private static float tinhdiem(Bangdiem bangdiem){
+        float number = 0;
+        int d = 0;
+        for (int i = 0; i < bangdiems.length; i++) {
+            number += bangdiem.number[i]*bangdiems[i].getSubject(i).getSodonvihoctrinh();
+            d += bangdiems[i].getSubject(i).getSodonvihoctrinh();
+            System.out.println("diem sinh vien" + number/d);
+        }
+        return number/d;
     }
 
     private static void sortbangdiem() {

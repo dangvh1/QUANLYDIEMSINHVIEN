@@ -1,6 +1,5 @@
 package monhoc;
 
-import school.Monhoc;
 import school.Student;
 import school.Subject;
 
@@ -11,7 +10,7 @@ public class Bangdiem implements Serializable {
     private Student student;
     private Subject[] subjects;
     private Subject subject;
-    private int[] number;
+    public int[] number;
 
     public Bangdiem() {
     }
@@ -46,7 +45,7 @@ public class Bangdiem implements Serializable {
         this.number = number;
     }
 
-    public Subject getSubject() {
+    public Subject getSubject(int i) {
         return subject;
     }
 
