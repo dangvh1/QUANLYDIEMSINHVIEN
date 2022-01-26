@@ -346,14 +346,9 @@ public class Main {
                 check = false;
                 continue;
             }
-            if (SubjectNumber > 0 || SubjectNumber < subjects.length) {
-                System.out.print("Số môn học phải lớn hơn 0 và nhỏ hơn tổng số môn học! Nhập lại: ");
-                check = false;
-            }
         } while (!check);
         return SubjectNumber;
     }
-
 
     private static void displayBangdiem() {
         for (Bangdiem bangdiem : bangdiems) {
