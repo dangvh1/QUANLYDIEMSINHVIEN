@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class Bangdiem implements Serializable {
     private Student student;
     private Subject[] subjects;
+    private Subject subject;
     private int[] number;
 
     public Bangdiem() {
@@ -43,6 +44,14 @@ public class Bangdiem implements Serializable {
 
     public void setNumber(int[] number) {
         this.number = number;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @Override
