@@ -229,7 +229,7 @@ public class Main {
             System.out.println("Nhập thông tin môn học cho học sinh " + student.getName());
             System.out.println("Nhập số môn học của học sinh " + student.getName() + " cần nhập điểm ");
             int subjectNumber = inputSubjectNumber(subjects);
-            bangdiems = new Bangdiem[subjectNumber];
+            subjects = new Subject[subjectNumber];
             int[] number = new int[subjectNumber];
             for (int j = 0; j < subjectNumber; j++) {
                 System.out.println("Nhập id môn học thứ " + (j + 1) + " của học sinh " + student.getName() + " muốn nhập điểm ");
